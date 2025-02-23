@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1510tyTextApp", "1510tyTextApp\1510tyTextApp.csproj", "{1949CC16-94EC-4D79-8C61-ACDBA16A877E}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "1510tyTextApp セットアップ", "1510tyTextApp セットアップ\1510tyTextApp セットアップ.vdproj", "{C9E9D060-ABA1-46FD-AA1A-449C20E6DD1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{1949CC16-94EC-4D79-8C61-ACDBA16A877E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1949CC16-94EC-4D79-8C61-ACDBA16A877E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1949CC16-94EC-4D79-8C61-ACDBA16A877E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9E9D060-ABA1-46FD-AA1A-449C20E6DD1A}.Debug|Any CPU.ActiveCfg = Debug
+		{C9E9D060-ABA1-46FD-AA1A-449C20E6DD1A}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

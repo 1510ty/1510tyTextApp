@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic.ApplicationServices;
 using System.Diagnostics.Eventing.Reader;
 
 namespace _1510tyTextApp
@@ -7,8 +8,21 @@ namespace _1510tyTextApp
         public Form1()
         {
             InitializeComponent();
-        }
 
+            string[] args = Environment.GetCommandLineArgs();
+            if (args.Length > 1)
+            {
+                string filePath = args[1];
+                if (File.Exists(filePath))
+                {
+                    textBox1.Text = File.ReadAllText(filePath);
+                }
+                else
+                {
+                    MessageBox.Show("404 File Not Found", "開く", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -17,7 +31,7 @@ namespace _1510tyTextApp
         private void SaveTextBoxContent()
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog.Filter = "テキストファイル (*.txt)|*.txt|すべてのファイル (*.*)|*.*";
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -38,14 +52,14 @@ namespace _1510tyTextApp
         }
         private void OpenFileAndLoadContent()
         {
-            if (!string.IsNullOrEmpty(textBox1.Text)) 
+            if (!string.IsNullOrEmpty(textBox1.Text))
             {
-                DialogResult result = MessageBox.Show("テキストボックス内に、文字があります。このままファイルを開きますか？","開く",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("テキストボックス内に、文字があります。このままファイルを開きますか？", "開く", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.OK)
                 {
                     OpenFileDialog openFileDialog = new OpenFileDialog();
-                    openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+                    openFileDialog.Filter = "テキストファイル (*.txt)|*.txt|すべてのファイル (*.*)|*.*";
 
                     if (openFileDialog.ShowDialog() == DialogResult.OK)
                     {
@@ -55,13 +69,13 @@ namespace _1510tyTextApp
                 }
                 else
                 {
-                    
+
                 }
             }
             else
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+                openFileDialog.Filter = "テキストファイル (*.txt)|*.txt|すべてのファイル (*.*)|*.*";
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -73,7 +87,7 @@ namespace _1510tyTextApp
 
         private void このアプリについてToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("1510tyによって、作られ、提供されています。", "このアプリについて", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("1510tyTextApp 1.5.0\n1510tyによって、作られ、提供されています。", "このアプリについて", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void 利用させていただいたものToolStripMenuItem_Click(object sender, EventArgs e)
@@ -88,7 +102,32 @@ namespace _1510tyTextApp
 
         private void 追加予定機能ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("・ファイルを保存する際、いちいちダイアログを開くのではなく、「保存」と、「別の名前で保存」を用意する。...くらい","追加予定機能!",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("・ファイルを保存する際、いちいちダイアログを開くのではなく、\n「保存」と、「別の名前で保存」を用意する。\n・Ctrl+Sで保存できるようにする\n...くらい", "追加予定機能!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 終了ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("終了しますか?","1510tyTextApp", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (result == DialogResult.OK)
+            {
+                Application.Exit();
+            }
+            else
+            {
+
+            }
+
+
+
+
+
+        }   
+
     }
 }
